@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-python
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-python
+  template:
+    metadata:
+      labels:
+        app: hello-python
+        ingress-app: hello-python
+    spec:
+      containers:
+        - name: hello-python
+          image: 619003409903.dkr.ecr.ap-northeast-1.amazonaws.com/benesse-poc:latest
+          ports:
+            - name: http
+              containerPort: 8080
+          command: ["/usr/libexec/s2i/run"]
+          env:
+          - name: APP_CONFIG
+            value: guniconf.py
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-python
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http-port
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: hello-python
