@@ -19,5 +19,5 @@ phases:
       - printf '[{"name":"hello-python","imageURI":"%s"}]' $IMAGE_REPO_NAME:$IMAGE_TAG > imagedefinitions.json
       #- printf '{"Version":"1.0","ImageURI":"%s"}' $IMAGE_REPO_NAME:$IMAGE_TAG > imageDetail.json
 artifacts:
-  files: imageDetail.json
+  files: imagedefinitions.json
   name: BuildArtifact
