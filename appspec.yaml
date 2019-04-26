@@ -1,0 +1,10 @@
+version: 0.0
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: "<TASK_DEFINITION>" ## <TASK_DEFINITION>という文字列を置き換えることなくそのまま使用してください。
+        LoadBalancerInfo:
+            ContainerName: "hello-python" ##適切な名前に置き換えてください
+            ContainerPort: "8080" ##適切なポート番号に置き換えてください
+            
