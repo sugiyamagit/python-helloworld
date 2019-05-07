@@ -4,7 +4,7 @@
     "containerDefinitions": [
       {
         "name": "hello-python",
-        "image": "619003409903.dkr.ecr.ap-northeast-1.amazonaws.com/hello-python:latest",
+        "image": "<IMAGE1_NAME>",
         "cpu": 100,
         "portMappings": [
           {
@@ -13,8 +13,11 @@
             "hostPort": 8080
           }
         ],
+        "requiresCompatibilities": ["FARGATE"],
+        "networkMode": "awsvpc",
         "memory": 128,
-        "essential": true
+        "essential": true,
+        "family": "hello-python"
       }
     ]
   }
