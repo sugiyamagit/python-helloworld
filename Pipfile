@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-hello = {editable = true,path = "."}
-flask = "*"
+flask = {version = "*"}
+hello-app = {editable = true ,path = "."}
 
 [dev-packages]
 
